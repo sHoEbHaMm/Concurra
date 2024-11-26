@@ -74,6 +74,7 @@ int main()
     }
     auto t = timer.Peek();
     std::cout << "Multithreaded processing datasets took: " << t << "s" << std::endl;
+    std::cout << "Result: " << result << std::endl;
 #endif
 
 #if MULTITHREADED == 0
@@ -84,6 +85,7 @@ int main()
     }
     auto t = timer.Peek();
     std::cout << "Non multithreaded processing datasets took: " << t << "s" << std::endl;
+    std::cout << "Result: " << result << std::endl;
 #endif
 
     return 0;
