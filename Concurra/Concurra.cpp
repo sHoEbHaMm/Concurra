@@ -1,10 +1,11 @@
 #include "config.h"
 
-#define MULTITHREADED 1
+#define MULTITHREADED 0
 #define LOCKGUARD 1
 
-const unsigned int DATASET = 5000000;
+const unsigned int DATASET = 500000;
 
+#if MULTITHREADED == 1
 void ProcessDataset(std::array<int, DATASET>& set, int& result, std::mutex& mtx)
 {
     for (int i : set)
@@ -40,13 +41,24 @@ void ProcessDataset(std::array<int, DATASET>& set, int& result, std::mutex& mtx)
 #endif
     }
 }
+#endif
+
+#if MULTITHREADED == 0
+void ProcessDataset(std::array<int, DATASET>& set, int& result)
+{
+    for (int i : set)
+    {
+        constexpr auto limit = (double)std::numeric_limits<int>::max();
+        const auto y = (double)i / limit;
+        result += (int)std::sin(std::cos(y) * limit);
+    }
+}
+#endif
 
 int main()
 {
     /* Data set */
     std::vector<std::array<int, DATASET>> dataSet{ 4 };
-    /* Threads */
-    std::vector<std::thread> workerThreads;
     /* Shared variable across threads */
     int result = 0;
 
@@ -60,6 +72,8 @@ int main()
     }
 
 #if MULTITHREADED == 1
+    /* Threads */
+    std::vector<std::thread> workerThreads;
     std::mutex mtx;
 
     for (auto& set : dataSet)
@@ -81,7 +95,7 @@ int main()
     timer.Mark();
     for (auto& set : dataSet)
     {
-        ProcessDataset(set);
+        ProcessDataset(set, result);
     }
     auto t = timer.Peek();
     std::cout << "Non multithreaded processing datasets took: " << t << "s" << std::endl;
