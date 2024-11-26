@@ -1,11 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <array>
-#include <random>
-#include <ranges>
-#include <algorithm>
-#include <cmath>
-#include "ChiliTimer.h"
+#include "config.h"
 
 #define MULTITHREADED 1
 
