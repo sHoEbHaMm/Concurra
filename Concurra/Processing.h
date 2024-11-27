@@ -59,10 +59,10 @@ int ProcessInChunks_MULTITHREADED()
             workerThreads.push_back(std::jthread{ ProcessDataset, std::span{&dataSets[j][i], subsetSize}, std::ref(result[j].v) });
         }
         workerThreads.clear();
-        total = result[0].v + result[1].v + result[2].v + result[3].v;
     }
     auto t = timer.Peek();
 
+    total = result[0].v + result[1].v + result[2].v + result[3].v;
     std::cout << "Multithreaded processing datasets IN CHUNKS took: " << t << "s" << std::endl;
     std::cout << "Result " << total << std::endl;
 
