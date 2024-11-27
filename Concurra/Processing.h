@@ -6,7 +6,7 @@ int ProcessAllAtOnce_MULTITHREADED()
 {
     struct Result {
         int v;
-        char padding[60];
+        char padding[60]; //To keep each v on a different cacheline
     };
 
     auto dataSet = GenerateDatasets();
