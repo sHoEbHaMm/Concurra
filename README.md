@@ -4,10 +4,10 @@
 
 *Data structure used for the DataSet:* std::vector
 
-##*Operation performed:*
+## *Operation performed:*
 ![image](https://github.com/user-attachments/assets/d5b59c66-32d2-4492-8451-6bbf97516e97)
 
-##*Multi-Threaded block of code:*
+## *Multi-Threaded block of code:*
 ![image](https://github.com/user-attachments/assets/7b7dd6f2-54f0-4484-a63d-1360faaa7829)
 
 ## *Non Multi-Threaded block of code:*
