@@ -2,6 +2,7 @@
 *Problem Statement:* Perform the same operation using a shared variable to accumulate the final result between different threads using Mutexes & Lockguard
 
 *Mutex:* Similar to cages with a lock. Lock the mutex before performing any operations on a shared variable. Remember to unlock it once the operation is complete.
+#
 *Example:* Two threads - t1 & t2 are performing an operation on the same variable. Let's say t1 gets to operate the first time. t1 will request a lock, perform the operation, write the result into memory & unlock the mutex. If t2 wanted to perform any operations on the variable during this time [before t1 actually unlocks the mutex], it couldn't because the mutex was already locked by t1. Hence, t2 has to wait before it gets unlocked to perform its operations.
 
 ## Mutex code block:
