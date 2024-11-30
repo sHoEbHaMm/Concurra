@@ -4,7 +4,7 @@
 #
 ## What if each thread has its own variable to populate the result and the final result is simply the addition of these different variables?
 
-## The variable array [4 Threads - 4 different vars] :
+*The variable array [4 Threads - 4 different vars] :*
 ![image](https://github.com/user-attachments/assets/931cbba1-44cd-40c3-a733-4af480d5e5c4)
 
 Surprisingly, even this does not give the desired result where multi-threaded processing is quicker than single-threaded one. This is because of False Sharing.
