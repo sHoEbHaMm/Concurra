@@ -1,4 +1,4 @@
-# Concurra
+# Concurra [ Different branches in this repo include advanced implementations of multi-threading in C++ ]
 
 *Problem Statement* - Reduce the time taken by the cpu to perform a certain complex mathematical operation using multi-threading
 
