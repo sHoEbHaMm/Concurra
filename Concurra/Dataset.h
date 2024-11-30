@@ -3,25 +3,30 @@
 
 const unsigned int DATASET = 50000000;
 
-std::vector<std::array<int, DATASET>> GenerateDatasets()
-{
-    std::vector<std::array<int, DATASET>> dataSet{ 4 };
-    std::minstd_rand randomEngine;
+class dSet {
 
-    for (auto& arr : dataSet)
+public:
+    static std::vector<std::array<int, DATASET>> GenerateDatasets()
     {
-        std::ranges::generate(arr, randomEngine);
+        std::vector<std::array<int, DATASET>> dataSet{ 4 };
+        std::minstd_rand randomEngine;
+
+        for (auto& arr : dataSet)
+        {
+            std::ranges::generate(arr, randomEngine);
+        }
+
+        return dataSet;
     }
 
-    return dataSet;
-}
-
-void ProcessDataset(std::span<int> set, int& result)
-{
-    for (int i : set)
+    static void ProcessDataset(std::span<int> set, int& result)
     {
-        constexpr auto limit = (double)std::numeric_limits<int>::max();
-        const auto y = (double)i / limit;
-        result += (int)std::sin(std::cos(y) * limit);
+        for (int i : set)
+        {
+            constexpr auto limit = (double)std::numeric_limits<int>::max();
+            const auto y = (double)i / limit;
+            result += (int)std::sin(std::cos(y) * limit);
+        }
     }
-}
+};
+

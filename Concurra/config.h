@@ -6,4 +6,5 @@
 #include <ranges>
 #include <algorithm>
 #include <cmath>
+#include <condition_variable>
 #include "ChiliTimer.h"
